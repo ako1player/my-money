@@ -11,7 +11,7 @@ export const useCollection = (collection:any, _query:any, _orderBy:any) => {
   const orderBy = useRef(_orderBy).current;
 
   useEffect(() => {
-    let ref = projectFirestore.collection(collection)
+    let ref:any = projectFirestore.collection(collection)
 
     if(query){
       ref = ref.where(...query)
@@ -21,9 +21,9 @@ export const useCollection = (collection:any, _query:any, _orderBy:any) => {
       ref = ref.orderBy(...orderBy)
     }
 
-    const unsubscribe = ref.onSnapshot(snapshot => {
+    const unsubscribe = ref.onSnapshot((snapshot:any) => {
       let results:any = []
-      snapshot.docs.forEach(doc => {
+      snapshot.docs.forEach((doc:any) => {
         results.push({...doc.data(), id: doc.id})
       });
       
@@ -31,7 +31,7 @@ export const useCollection = (collection:any, _query:any, _orderBy:any) => {
       setDocuments(results)
       console.log(documents)
       setError(null)
-    }, error => {
+    }, (error:any) => {
       console.log(error)
       setError('could not fetch the data')
     })
