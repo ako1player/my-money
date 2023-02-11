@@ -4,7 +4,7 @@ import { projectAuth } from "../firebase/config";
 
 export const useLogin = () =>{
     const [isCancelled, setIsCancelled] = useState(false);
-    const [error, setError] = useState<any | null>();
+    const [error, setError] = useState<null | any>(null);
     const [isPending, setIsPending] = useState(false);
     const {dispatch}:any = useAuthContext();
 
@@ -33,7 +33,8 @@ export const useLogin = () =>{
     }
 
     useEffect(() =>{
-        return ()=> setIsCancelled(true);
+        setIsCancelled(false);
+        return () => setIsCancelled(true);
     },[])
 
     return { login, error, isPending}
