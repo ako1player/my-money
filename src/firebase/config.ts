@@ -4,8 +4,8 @@ import 'firebase/compat/auth'
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDn6RixLWJVWB4_2NemgeJLwPslN-Fgqe0",
-    authDomain: "mymoney-ef21d.firebaseapp.com",
+    apiKey: API_KEY,
+    authDomain: AUTH_DOMAIN,
     projectId: "mymoney-ef21d",
     storageBucket: "mymoney-ef21d.appspot.com",
     messagingSenderId: "977804417538",
